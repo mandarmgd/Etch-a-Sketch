@@ -5,10 +5,18 @@ h1 {
 }
 
 .grid {
-  display: block;
-  margin: 50px auto auto auto;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
   height: 640px;
   width: 640px;
-  border: black solid;
+  margin: 100px auto auto auto;
+  padding: 0;
+}
+
+.square {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 1px black solid;
 }
