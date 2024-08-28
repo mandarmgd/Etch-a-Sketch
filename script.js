@@ -4,15 +4,46 @@ const grid = document.querySelector('.grid');
 let gridHeight = parseInt(getComputedStyle(grid).height);
 let gridWidth = parseInt(getComputedStyle(grid).width);
 const gridArea = gridHeight * gridWidth;
-let sqSide = 16;
-let sqCount = sqSide * sqSide;
-let sqHeight = gridHeight / sqSide;
-let sqWidth = gridWidth / sqSide;
 
-for (let i = 1; i <= sqCount; i++) {
-  const square = document.createElement('div');
-  square.style.height = `${sqHeight}px`;
-  square.style.width = `${sqWidth}px`;
-  square.classList.add('square');
-  grid.insertAdjacentElement('beforeend', square);
-}
+const setSquares = numSq => {
+  grid.replaceChildren();
+
+  const sqSide = numSq;
+  const sqCount = sqSide * sqSide;
+  const sqHeight = gridHeight / sqSide;
+  const sqWidth = gridWidth / sqSide;
+
+  for (let i = 1; i <= sqCount; i++) {
+    const square = document.createElement('div');
+    square.style.height = `${sqHeight}px`;
+    square.style.width = `${sqWidth}px`;
+    square.classList.add('square');
+    grid.insertAdjacentElement('beforeend', square);
+    if (i <= sqSide) {
+      square.style.borderTop = '1px black solid';
+    }
+    if (i % sqSide === 1) {
+      square.style.borderLeft = '1px black solid';
+    }
+    if (i % sqSide === 0) {
+      square.style.borderRight = '1px black solid';
+    }
+    if (i > sqCount - sqSide) {
+      square.style.borderBottom = '1px black solid';
+    }
+  }
+
+  grid.addEventListener('mouseover', function (e) {
+    if (e.target.classList.contains('square')) {
+      e.target.style.backgroundColor = 'green';
+    }
+  });
+};
+setSquares(16);
+
+const reset = document.querySelector('button');
+reset.addEventListener('click', () => {
+  const num = +prompt('Enter the number of squares per side');
+  if (num > 100) return;
+  setSquares(num);
+});
