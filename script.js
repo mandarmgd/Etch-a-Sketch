@@ -44,6 +44,6 @@ setSquares(16);
 const reset = document.querySelector('button');
 reset.addEventListener('click', () => {
   const num = +prompt('Enter the number of squares per side');
-  if (num > 100) return;
+  if (num <= 0 || num > 100) return;
   setSquares(num);
 });
