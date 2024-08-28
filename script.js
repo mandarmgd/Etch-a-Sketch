@@ -19,6 +19,7 @@ const setSquares = numSq => {
     square.style.width = `${sqWidth}px`;
     square.classList.add('square');
     grid.insertAdjacentElement('beforeend', square);
+    /*
     if (i <= sqSide) {
       square.style.borderTop = '1px black solid';
     }
@@ -31,11 +32,15 @@ const setSquares = numSq => {
     if (i > sqCount - sqSide) {
       square.style.borderBottom = '1px black solid';
     }
+    */
   }
 
   grid.addEventListener('mouseover', function (e) {
     if (e.target.classList.contains('square')) {
-      e.target.style.backgroundColor = 'green';
+      const c1 = Math.trunc(Math.random() * 256);
+      const c2 = Math.trunc(Math.random() * 256);
+      const c3 = Math.trunc(Math.random() * 256);
+      e.target.style.backgroundColor = `rgb(${c1}, ${c2}, ${c3})`;
     }
   });
 };

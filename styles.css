@@ -13,13 +13,13 @@ h1 {
   width: 800px;
   margin: 20px auto auto auto;
   padding: 0;
+  background-color: white;
 }
 
 .square {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: white;
 }
 
 body {
