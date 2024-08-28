@@ -31,20 +31,6 @@ const setSquares = numSq => {
     square.style.opacity = '0';
     square.classList.add('square');
     grid.insertAdjacentElement('beforeend', square);
-    /*
-    if (i <= sqSide) {
-      square.style.borderTop = '1px black solid';
-    }
-    if (i % sqSide === 1) {
-      square.style.borderLeft = '1px black solid';
-    }
-    if (i % sqSide === 0) {
-      square.style.borderRight = '1px black solid';
-    }
-    if (i > sqCount - sqSide) {
-      square.style.borderBottom = '1px black solid';
-    }
-    */
   }
   grid.addEventListener('mouseover', bindHover);
 };
